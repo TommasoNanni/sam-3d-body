@@ -100,7 +100,7 @@ class SAM3DBodyEstimator:
             img = load_image(img, backend="cv2", image_format="bgr")
             image_format = "bgr"
         else:
-            print("####### Please make sure the input image is in RGB format")
+            # print("####### Please make sure the input image is in RGB format")
             image_format = "rgb"
         height, width = img.shape[:2]
 
@@ -167,7 +167,7 @@ class SAM3DBodyEstimator:
             cam_int = cam_int.to(batch["img"])
             batch["cam_int"] = cam_int.clone()
         elif self.fov_estimator is not None:
-            print("Running FOV estimator ...")
+            # print("Running FOV estimator ...")
             input_image = batch["img_ori"][0].data
             cam_int = self.fov_estimator.get_cam_intrinsics(input_image).to(
                 batch["img"]
